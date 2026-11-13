@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chhath at Ruari: A Comic Journey</title>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a0f2e;--gold:#ffb703;--red:#d7263d;--paper:#fff1c9;--night:#120b2a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--night);color:var(--paper);font-family:Bangers,Impact,"Arial Narrow",sans-serif;letter-spacing:.04em;display:flex;flex-direction:column;align-items:center;padding:12px 12px 28px}
+.hi{font-family:"Tiro Devanagari Hindi","Noto Sans Devanagari",serif;letter-spacing:0}
+.wrap{width:100%;max-width:460px}
+.panel{position:relative;width:100%;aspect-ratio:400/560;border:6px solid var(--ink);outline:3px solid var(--paper);box-shadow:8px 8px 0 var(--red);overflow:hidden;background:#000}
+.panel svg{display:block;width:100%;height:100%}
+.dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(26,15,46,.5) 1.2px,transparent 1.6px);background-size:7px 7px;mix-blend-mode:multiply;opacity:.5}
+.fade{animation:fin .6s ease both}
+@keyframes fin{from{opacity:0;transform:scale(1.04)}}
+.intro{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:20px;text-align:center;background:linear-gradient(transparent 30%,rgba(18,11,42,.85))}
+.intro h1{font-weight:400;font-size:clamp(34px,11vw,56px);margin:0;color:var(--gold);text-shadow:3px 3px 0 var(--red),5px 5px 0 var(--ink);line-height:1;transform:rotate(-2deg)}
+.intro .hi{font-size:clamp(30px,9vw,44px);color:var(--paper);text-shadow:3px 3px 0 var(--ink);margin:4px 0}
+.intro p{margin:6px 0 14px;font-size:18px}
+.card{margin-top:14px;background:var(--paper);color:var(--ink);border:4px solid var(--ink);box-shadow:5px 5px 0 var(--gold);padding:10px 14px;font-size:19px;line-height:1.2}
+.card b{font-weight:400;font-size:26px;color:var(--red);display:block}
+.card .hi{display:block;color:#7a2d00;font-size:17px;margin-top:2px}
+.card .lore{display:none;margin-top:8px;padding-top:8px;border-top:3px dashed var(--ink);font-size:17px}
+.card.on .lore{display:block}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+button{font:inherit;font-size:19px;letter-spacing:.06em;background:var(--paper);color:var(--ink);border:4px solid var(--ink);box-shadow:3px 3px 0 var(--gold);padding:7px 14px;cursor:pointer;flex:1 1 auto}
+button.pri{background:var(--gold)}
+button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--gold)}
+button:focus-visible,[role=button]:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button[disabled]{opacity:.45}
+.chips button{font-size:15px;padding:5px 8px;flex:1 1 30%}
+.chips button.cur{background:var(--red);color:var(--paper)}
+.hot{cursor:pointer}
+.hot:hover .tag,.hot:focus .tag{fill:#fff}
+.bob{animation:bob .6s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-5px)}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pl 1.2s ease-in-out infinite alternate}
+@keyframes pl{to{transform:scale(1.18)}}
+.glow{animation:gl 1.6s ease-in-out infinite alternate}
+@keyframes gl{from{opacity:.55}to{opacity:1}}
+.spin{transform-box:fill-box;transform-origin:center;animation:sp 24s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.wave{animation:wv 3s linear infinite}
+@keyframes wv{to{transform:translateX(-40px)}}
+.drift{animation:dr 9s linear infinite}
+@keyframes dr{from{transform:translateX(-30px)}to{transform:translateX(430px)}}
+.flick{transform-box:fill-box;transform-origin:50% 100%;animation:fk .35s ease-in-out infinite alternate}
+@keyframes fk{to{transform:scale(.8,1.2) rotate(4deg)}}
+.flag{transform-box:fill-box;transform-origin:0 50%;animation:fl 1s ease-in-out infinite alternate}
+@keyframes fl{to{transform:skewY(10deg) scaleX(.85)}}
+.swing{transform-box:fill-box;transform-origin:50% 0;animation:sw 1.4s ease-in-out infinite alternate}
+@keyframes sw{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+.rise{animation:ri 14s ease-in-out infinite alternate}
+@keyframes ri{from{transform:translateY(34px)}to{transform:translateY(0)}}
+.set{animation:ri 14s ease-in-out infinite alternate-reverse}
+#walker{transition:transform 1.8s ease-in-out}
+#cr{position:absolute;inset:44px 10px auto 10px;z-index:6;background:var(--paper);color:var(--ink);border:4px solid var(--ink);box-shadow:5px 5px 0 var(--gold);padding:10px 12px;font-size:16px;line-height:1.25}
+#cr[hidden]{display:none}
+#cr b{font-weight:400;font-size:22px;color:var(--red);display:block}
+#cr input{width:100%;margin:4px 0;font:16px Arial,sans-serif;padding:4px 6px;border:3px solid var(--ink);background:#fff;color:var(--ink)}
+#np{position:absolute;left:8px;right:8px;bottom:8px;z-index:5;background:var(--gold);color:var(--ink);border:3px solid var(--ink);padding:2px 8px;font-size:15px;text-align:center}
+#np:empty{display:none}
+#cr button{font-size:15px;padding:4px 8px;box-shadow:2px 2px 0 var(--gold)}
+#yt{position:absolute;left:8px;right:8px;bottom:40px;z-index:5;border:3px solid var(--ink);background:#000}
+#yt[hidden]{display:none}
+#yt iframe{display:block;width:100%;height:130px;border:0}
+#yt button{position:absolute;top:-3px;right:-3px;font-size:13px;padding:0 7px;box-shadow:none;flex:none}
+.snd{position:absolute;top:6px;right:6px;z-index:5;display:flex;gap:6px}
+.snd button,.snd label{font-family:Bangers,Impact,sans-serif;font-size:14px;letter-spacing:.05em;padding:3px 8px;flex:0 0 auto;border:3px solid var(--ink);background:var(--paper);color:var(--ink);box-shadow:2px 2px 0 var(--gold);cursor:pointer;line-height:1.2}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="panel" id="panel"><div id="stage"></div><div class="dots"></div><div id="over"></div><div class="snd"><button id="snd" type="button" aria-label="Toggle music">♪ Off</button><label>My song<input type="file" accept="audio/*" id="mf" hidden></label><button id="cb" type="button">Credits</button></div><div id="cr" hidden><b>Credits</b>Story, comic art and animation: made with Claude (Anthropic).<br>Festival: Chhath Puja, honouring Surya Dev and Chhathi Maiya.<br>Built-in music: an original instrumental generated inside this page.<br><br>Your song (shows on screen while it plays):<input id="ct" placeholder="Song title"><input id="ca" placeholder="Singer / composer / source"><input id="yl" placeholder="Paste the YouTube link of the song"><div style="display:flex;gap:6px;margin-top:4px"><button id="ys" type="button">Find on YouTube</button><button id="yp" type="button">Play it here</button></div></div><div id="yt" hidden></div><div id="np"></div></div>
+<div id="ui"></div>
+</div>
+<script>
+var INK='#1a0f2e',N={market:[225,300],home:[85,330],ghat:[200,470],mandir:[305,165]};
+function base(k,a,b){return '<defs><linearGradient id="g'+k+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+a+'"/><stop offset="1" stop-color="'+b+'"/></linearGradient></defs><rect width="400" height="560" fill="url(#g'+k+')"/>'}
+function P(x,y,s,c,o){o=o||{};return '<g transform="translate('+x+' '+y+') scale('+s+')"><g class="bob" style="animation-delay:'+(o.d||0)+'s"><path d="M-16 0L-12 -62Q0 -70 12 -62L16 0Z" fill="'+c+'" stroke="'+INK+'" stroke-width="3.5"/><circle cy="-80" r="14" fill="'+(o.skin||'#b9764a')+'" stroke="'+INK+'" stroke-width="3.5"/><path d="M-15 -82Q-14 -98 0 -96Q15 -98 15 -82Q8 -90 0 -89Q-8 -90 -15 -82Z" fill="'+INK+'"/>'+(o.x||'')+'</g></g>'}
+var PALLU='<path d="M-15 -80Q0 -106 15 -80L19 -58L-19 -58Z" fill="#ffb703" stroke="'+INK+'" stroke-width="3"/><circle cy="-86" r="2" fill="#d7263d"/>';
+function soop(x,y,s){return '<g transform="translate('+x+' '+y+') scale('+s+')"><ellipse rx="26" ry="9" fill="#d9a15a" stroke="'+INK+'" stroke-width="3"/><circle cx="-10" cy="-6" r="6" fill="#ff8a1f" stroke="'+INK+'" stroke-width="2"/><circle cx="8" cy="-6" r="6" fill="#ffd166" stroke="'+INK+'" stroke-width="2"/><path d="M-4 -12Q0 -26 4 -12Z" class="flick" fill="#ffe29a" stroke="'+INK+'" stroke-width="2"/></g>'}
+function cane(x,y){return '<path d="M'+x+' '+y+'L'+(x+6)+' '+(y-150)+'" stroke="#5a8f3a" stroke-width="7" stroke-linecap="round"/><path d="M'+(x+6)+' '+(y-150)+'l-14 -22M'+(x+6)+' '+(y-150)+'l14 -20" stroke="#3d7a3a" stroke-width="4"/>'}
+function tg(x,y,t){var w=t.length*9+14;return '<g transform="translate('+x+' '+y+')"><rect x="'+(-w/2)+'" y="-14" width="'+w+'" height="21" fill="#fff1c9" stroke="'+INK+'" stroke-width="2.5"/><text text-anchor="middle" y="2" font-size="14" fill="'+INK+'" style="font-family:Tiro Devanagari Hindi,serif">'+t+'</text></g>'}
+function rays(cx,cy){var s='';for(var i=0;i<12;i++){s+='<path d="M0 -70L-9 -118L9 -118Z" transform="rotate('+(i*30)+')" fill="#fff1c9" opacity=".8"/>'}return '<g transform="translate('+cx+' '+cy+')"><g class="spin">'+s+'</g></g>'}
+function ghat(v){var up=v=='up',c=up?['#ff9a8b','#ffe29a']:['#5b2a86','#ff7b39'],s='';
+for(var i=0;i<4;i++){var x=60+i*95;s+=P(x,482,1.15,i%2?'#d7263d':'#ff8a1f',{x:PALLU,d:i*.15})}
+var d='';for(var j=0;j<4;j++){d+=soop(60+j*95,330-0,.9)}
+return base('gh'+v,c[0],c[1])+'<g class="'+(up?'rise':'set')+'">'+rays(200,330)+'<circle cx="200" cy="330" r="52" fill="#ffb703" stroke="'+INK+'" stroke-width="5"/></g>'+
+'<rect y="345" width="400" height="215" fill="#1b6b8a"/><rect y="345" width="400" height="215" fill="#ffb703" opacity=".18"/>'+
+'<g class="wave" fill="none" stroke="#9fe0ee" stroke-width="3"><path d="M-40 380q10 -8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/><path d="M-60 420q10 -8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/></g>'+
+'<g class="drift"><ellipse cx="0" cy="410" rx="9" ry="4" fill="#ff8a1f" stroke="'+INK+'" stroke-width="2"/><path class="flick" d="M-3 405Q0 396 3 405Z" fill="#ffe29a"/></g><g class="drift" style="animation-delay:-4s"><ellipse cx="0" cy="440" rx="9" ry="4" fill="#ff8a1f" stroke="'+INK+'" stroke-width="2"/><path class="flick" d="M-3 435Q0 426 3 435Z" fill="#ffe29a"/></g>'+
+s+'<rect y="470" width="400" height="90" fill="#1b6b8a" opacity=".85"/><g class="wave" fill="none" stroke="#9fe0ee" stroke-width="3"><path d="M-40 500q10 -8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/></g>'+d+
+tg(200,262,'सूर्य देव')+tg(95,298,'अर्घ्य का सूप')+tg(340,432,'दीया')+tg(50,546,'घाट की सीढ़ी')+'<path d="M0 520L90 560H0Z M310 560L400 515V560Z" fill="#8a5036" stroke="'+INK+'" stroke-width="4"/>'}
+function home(v){var k=v=='kh',c=k?['#2a1259','#d7263d']:['#ffcf8a','#ffe8c2'];
+return base('h'+v,c[0],c[1])+(k?'<circle cx="320" cy="90" r="34" fill="#ffe29a" stroke="'+INK+'" stroke-width="4"/><g class="glow" fill="#fff1c9"><circle cx="60" cy="70" r="3"/><circle cx="140" cy="40" r="3"/><circle cx="210" cy="100" r="3"/></g>':rays(330,90))+
+'<rect y="420" width="400" height="140" fill="#b97a44" stroke="'+INK+'" stroke-width="4"/>'+
+'<path d="M30 270L130 190L230 270Z" fill="#a8742c" stroke="'+INK+'" stroke-width="4"/><rect x="45" y="270" width="170" height="150" fill="#d89a5a" stroke="'+INK+'" stroke-width="4"/><path d="M105 420V330Q130 300 155 330V420Z" fill="#3a1d12" stroke="'+INK+'" stroke-width="4"/><path d="M60 300h30M170 300h30M60 330h30M170 330h30" stroke="#f2d3a2" stroke-width="5"/>'+
+'<g transform="translate(300 420)"><path d="M-16 0V-46H16V0Z" fill="#f2d3a2" stroke="'+INK+'" stroke-width="3.5"/><path d="M-22 -46H22" stroke="'+INK+'" stroke-width="5"/><circle cy="-62" r="14" fill="#3d9a4a" stroke="'+INK+'" stroke-width="3"/><circle cy="-62" r="4" fill="#ffb703"/></g>'+
+'<g transform="translate(250 470)"><path d="M-34 0Q-34 -40 0 -44Q34 -40 34 0Z" fill="#a8602c" stroke="'+INK+'" stroke-width="4"/><path class="flick" d="M-8 -44Q-14 -66 0 -78Q14 -66 8 -44Z" fill="#ff8a1f" stroke="'+INK+'" stroke-width="3"/><path class="flick" d="M-3 -46Q-5 -58 0 -64Q5 -58 3 -46Z" fill="#ffe29a"/></g>'+
+(k?'<g transform="translate(250 392)"><path d="M-22 0Q-26 -24 0 -26Q26 -24 22 0Z" fill="#c9a24a" stroke="'+INK+'" stroke-width="3.5"/><ellipse cy="-26" rx="22" ry="6" fill="#fff1c9" stroke="'+INK+'" stroke-width="3"/></g>':'<g transform="translate(330 500)"><path d="M-14 0L-18 -34H18L14 0Z" fill="#c9a24a" stroke="'+INK+'" stroke-width="3.5"/><path d="M-12 -34Q0 -70 12 -34" fill="none" stroke="#c9a24a" stroke-width="4"/></g><g class="glow" stroke="#fff" stroke-width="3" fill="none"><path d="M240 340q-8 -16 0 -28t0 -24"/><path d="M262 344q-8 -16 0 -28t0 -24"/></g>')+
+P(160,500,1.25,'#d7263d',{x:PALLU})+P(95,515,.8,'#ff8a1f',{x:PALLU,d:.2})+P(350,515,.7,'#1d4e89',{d:.3})+tg(300,436,'तुलसी')+tg(250,492,'चूल्हा')+(k?tg(250,372,'खीर'):tg(330,526,'लोटा'))+
+'<g class="glow"><ellipse cx="40" cy="540" rx="9" ry="4" fill="#ff8a1f" stroke="'+INK+'" stroke-width="2"/><ellipse cx="370" cy="545" rx="9" ry="4" fill="#ff8a1f" stroke="'+INK+'" stroke-width="2"/></g>'}
+function market(){var s='',i;for(i=0;i<6;i++)s+='<path d="M'+(20+i*30)+' 250l15 -34l15 34Z" fill="'+(i%2?'#ffb703':'#d7263d')+'" stroke="'+INK+'" stroke-width="3"/>';
+for(i=0;i<5;i++)s+='<path d="M'+(215+i*34)+' 250l17 -34l17 34Z" fill="'+(i%2?'#ffb703':'#1d4e89')+'" stroke="'+INK+'" stroke-width="3"/>';
+var f='';for(i=0;i<6;i++)f+='<circle cx="'+(36+i*24)+'" cy="305" r="11" fill="'+(i%2?'#ff8a1f':'#ffd166')+'" stroke="'+INK+'" stroke-width="3"/>';
+return base('m','#ffb347','#ffd9a0')+'<path d="M0 60Q200 110 400 60" fill="none" stroke="'+INK+'" stroke-width="3"/><g class="glow">'+[40,100,160,220,280,340].map(function(x,j){return '<path d="M'+x+' '+(78+(j%2)*10)+'l12 0l-6 22Z" fill="'+(j%2?'#d7263d':'#ffb703')+'" stroke="'+INK+'" stroke-width="2.5"/>'}).join('')+'</g>'+
+'<rect y="410" width="400" height="150" fill="#c98a4b" stroke="'+INK+'" stroke-width="4"/>'+s+
+'<rect x="20" y="250" width="180" height="60" fill="#8a5036" stroke="'+INK+'" stroke-width="4"/>'+f+'<rect x="215" y="250" width="170" height="60" fill="#8a5036" stroke="'+INK+'" stroke-width="4"/>'+
+cane(240,310)+cane(270,310)+cane(300,310)+'<path d="M330 310l8 -26h30l8 26Z" fill="#ffd166" stroke="'+INK+'" stroke-width="3"/>'+
+soop(70,340,1)+soop(150,340,1)+soop(340,350,1)+tg(110,366,'फल और सूप')+tg(272,334,'गन्ना')+tg(352,376,'ठेकुआ')+
+P(130,490,1.2,'#d7263d',{x:PALLU})+P(260,495,1.15,'#1d4e89')+P(205,510,.7,'#ffb703',{d:.25})}
+function mandir(){var st='';for(var i=0;i<14;i++)st+='<circle cx="'+(20+i*28)+'" cy="'+(20+(i*37)%160)+'" r="2.4" fill="#fff1c9"/>';
+var dy='';for(i=0;i<7;i++)dy+='<g transform="translate('+(55+i*48)+' 520)"><ellipse rx="10" ry="4" fill="#ff8a1f" stroke="'+INK+'" stroke-width="2"/><path class="flick" d="M-3 -3Q0 -16 3 -3Z" fill="#ffe29a"/></g>';
+return base('t','#120b2a','#5a2a70')+'<g class="glow">'+st+'</g><g class="spin" opacity=".9"><circle cx="200" cy="260" r="150" fill="none" stroke="#ffb703" stroke-width="3" stroke-dasharray="10 9"/></g>'+
+'<rect y="470" width="400" height="90" fill="#6b3a2a" stroke="'+INK+'" stroke-width="4"/><path d="M80 470V450H320V470Z" fill="#8a5036" stroke="'+INK+'" stroke-width="4"/>'+
+'<rect x="140" y="320" width="120" height="130" fill="#ffb37a" stroke="'+INK+'" stroke-width="4"/><path d="M130 320Q200 80 270 320Z" fill="#ff8a1f" stroke="'+INK+'" stroke-width="4"/><path d="M150 290Q200 130 250 290M165 250H235M175 210H225" fill="none" stroke="'+INK+'" stroke-width="3"/><path d="M200 120V90" stroke="'+INK+'" stroke-width="5"/>'+
+'<path d="M188 128Q200 100 212 128Z" fill="#ffd166" stroke="'+INK+'" stroke-width="3"/><path d="M200 92V50" stroke="'+INK+'" stroke-width="4"/><path class="flag" d="M200 50L250 62L200 76Z" fill="#ff7a00" stroke="'+INK+'" stroke-width="3"/>'+
+'<path d="M180 450V380Q200 350 220 380V450Z" fill="#3a1d12" stroke="'+INK+'" stroke-width="4"/><g class="glow"><circle cx="200" cy="400" r="12" fill="#ffb703" opacity=".6"/></g>'+
+'<g transform="translate(120 330)"><path d="M0 0V16" stroke="'+INK+'" stroke-width="3"/><g class="swing"><path d="M-10 16Q-10 36 0 36Q10 36 10 16Z" fill="#ffd166" stroke="'+INK+'" stroke-width="3"/></g></g>'+
+dy+P(90,515,1.1,'#d7263d',{x:PALLU})+P(310,520,1.1,'#ff8a1f')+P(350,535,.7,'#1d4e89',{d:.2})+tg(262,38,'ध्वज')+tg(120,388,'घंटा')+tg(200,548,'दीये')+tg(200,34,'हनुमान मंदिर')}
+function hot(id,n,label,hi,ex){var p=N[n];return '<g class="hot" tabindex="0" role="button" aria-label="'+label+'" data-n="'+n+'" transform="translate('+p[0]+' '+p[1]+')">'+(ex||'')+'<g class="pulse"><circle r="15" fill="#d7263d" stroke="'+INK+'" stroke-width="4"/><circle r="5" fill="#fff1c9"/></g><rect class="tag" x="-52" y="20" width="104" height="24" fill="#ffb703" stroke="'+INK+'" stroke-width="3"/><text y="38" text-anchor="middle" font-size="16" fill="'+INK+'" style="font-family:Tiro Devanagari Hindi,serif">'+label+'</text></g>'}
+function mapSvg(from){var f=N[from||'home'],r='',i;for(i=0;i<9;i++)r+='<path d="M'+(10+i*10)+' 380l60 -20" stroke="#c9b13a" stroke-width="5" opacity=".7"/>';
+return '<svg viewBox="0 0 400 560" aria-label="Illustrated map of Ruari village">'+base('map','#ffd27a','#8fcf7a')+
+'<rect y="470" width="400" height="90" fill="#1b6b8a" stroke="'+INK+'" stroke-width="4"/><g class="wave" fill="none" stroke="#9fe0ee" stroke-width="3"><path d="M-40 520q10 -8 20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0t20 0"/></g>'+
+'<path d="M130 470L150 450H260L280 470Z" fill="#c98a4b" stroke="'+INK+'" stroke-width="4"/>'+
+'<g opacity=".85">'+r+'</g><path d="M85 330L225 300L305 165M225 300L200 470M85 330L200 470" fill="none" stroke="#e9c58a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M85 330L225 300L305 165M225 300L200 470M85 330L200 470" fill="none" stroke="'+INK+'" stroke-width="2" stroke-dasharray="6 8" stroke-linecap="round"/>'+
+'<g transform="translate(40 120)"><circle r="36" fill="#2f8a3d" stroke="'+INK+'" stroke-width="4"/><rect x="-6" y="30" width="12" height="30" fill="#6b3a2a" stroke="'+INK+'" stroke-width="3"/></g><g transform="translate(350 380)"><circle r="30" fill="#2f8a3d" stroke="'+INK+'" stroke-width="4"/><rect x="-5" y="26" width="10" height="26" fill="#6b3a2a" stroke="'+INK+'" stroke-width="3"/></g>'+
+'<g transform="translate(250 200)"><path d="M-22 0V-30H22V0Z" fill="#ffb37a" stroke="'+INK+'" stroke-width="3"/><path d="M-26 -30Q0 -80 26 -30Z" fill="#ff8a1f" stroke="'+INK+'" stroke-width="3"/><path d="M0 -62V-84" stroke="'+INK+'" stroke-width="3"/><path class="flag" d="M0 -84L22 -78L0 -72Z" fill="#ff7a00"/></g>'.replace('250 200','330 215')+
+hot(0,'mandir','हनुमान मंदिर')+hot(0,'market','बाज़ार')+hot(0,'home','घर')+hot(0,'ghat','छठ घाट')+
+'<g id="walker" style="transform:translate('+f[0]+'px,'+f[1]+'px)">'+P(0,6,.9,'#d7263d',{x:PALLU})+'</g>'+
+'<rect x="10" y="10" width="270" height="46" fill="#fff1c9" stroke="'+INK+'" stroke-width="4"/><text x="20" y="32" font-size="19" fill="'+INK+'" style="font-family:Bangers,Impact,sans-serif">RUARI, UTTAR PRADESH</text><text x="20" y="49" font-size="12" fill="#7a2d00" style="font-family:Arial,sans-serif;letter-spacing:0">illustrated map, not to scale</text>'+
+'<g transform="translate(360 60)"><circle r="22" fill="#fff1c9" stroke="'+INK+'" stroke-width="4"/><path d="M0 -16L6 0L0 16L-6 0Z" fill="#d7263d" stroke="'+INK+'" stroke-width="2"/><text y="-26" text-anchor="middle" font-size="14" fill="#fff1c9" style="font-family:Bangers">N</text></g></svg>'}
+var S=[
+{n:'market',t:'1. Bazaar Run',h:'बाज़ार की तैयारी',f:market,cap:'गन्ना, केले, फल और बाँस के सूप से सजी दुकानें. Everyone is buying for the प्रसाद.',lore:'Offerings go in a बाँस का सूप: ठेकुआ, मौसमी फल, गन्ना and नारियल. Everything is kept pure and simple.'},
+{n:'home',t:'2. Nahay Khay',h:'नहाय-खाय',f:function(){return home('nh')},cap:'Day one. A holy bath, a clean home, and a simple meal of लौकी-भात cooked on a मिट्टी का चूल्हा.',lore:'Devotees take a पवित्र स्नान, often in river water, and eat one सात्विक meal to begin the four-day व्रत.'},
+{n:'home',t:'3. Kharna',h:'खरना',f:function(){return home('kh')},cap:'Day two. After a day without food or water, खीर और रोटी are shared as the moon rises.',lore:'The fast is broken at dusk with प्रसाद. Then the long निर्जला व्रत begins, lasting about 36 hours.'},
+{n:'ghat',t:'4. Sandhya Arghya',h:'संध्या अर्घ्य',f:function(){return ghat('down')},cap:'Day three. Families stand waist-deep, सूप lifted high, offering अर्घ्य as सूर्य देव sinks into the glow.',lore:'Chhath honours सूर्य देव and छठी मैया. Tradition says द्रौपदी and the पांडव also kept this व्रत.'},
+{n:'ghat',t:'5. Usha Arghya',h:'उषा अर्घ्य',f:function(){return ghat('up')},cap:'Day four. Before dawn, दीये float on the water. The rising सूर्य देव receive the final अर्घ्य.',lore:'The व्रत ends at sunrise with the last अर्घ्य and प्रसाद shared among everyone.'},
+{n:'mandir',t:'6. Hanuman Mandir',h:'हनुमान मंदिर',f:mandir,cap:'आशीर्वाद at the मंदिर. The घंटा rings, the saffron ध्वज flies, and दीये light the steps.',lore:'Many families visit the मंदिर to give thanks after the व्रत. जय बजरंगबली!'}];
+var cur=-1,pos='home',st=document.getElementById('stage'),ui=document.getElementById('ui'),ov=document.getElementById('over'),busy=false;
+function intro(){cur=-1;pos='home';st.innerHTML='<div class="fade"><svg viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice">'+ghat('up')+'</svg></div>';
+ov.innerHTML='<div class="intro"><div class="hi">छठ महापर्व</div><h1>Chhath at Ruari</h1><p>A comic-mythology journey through the village, the ghat and the Hanuman Mandir.</p><button class="pri" id="en">Enter the village</button></div>';ui.innerHTML='';
+document.getElementById('en').onclick=function(){startMusic();showMap()}}
+function bind(){var h=st.querySelectorAll('.hot');for(var i=0;i<h.length;i++){(function(e){var f=function(){var n=e.getAttribute('data-n');for(var j=0;j<S.length;j++)if(S[j].n==n){go(j);return}};e.onclick=f;e.onkeydown=function(ev){if(ev.key=='Enter'||ev.key==' '){ev.preventDefault();f()}}})(h[i])}}
+function chips(){var s='<div class="row chips">';S.forEach(function(x,i){s+='<button class="'+(i==cur?'cur':'')+'" data-i="'+i+'">'+x.t+'</button>'});return s+'</div>'}
+function wire(){ui.querySelectorAll('[data-i]').forEach(function(b){b.onclick=function(){go(+b.getAttribute('data-i'))}});var m=ui.querySelector('#bm'),r=ui.querySelector('#br'),nx=ui.querySelector('#bn'),pv=ui.querySelector('#bp'),lo=ui.querySelector('#bl');
+if(m)m.onclick=showMap;if(r)r.onclick=intro;if(nx)nx.onclick=function(){go(cur+1)};if(pv)pv.onclick=function(){go(cur-1)};if(lo)lo.onclick=function(){ui.querySelector('.card').classList.toggle('on')}}
+function showMap(){ov.innerHTML='';st.innerHTML='<div class="fade">'+mapSvg(pos)+'</div>';bind();
+ui.innerHTML='<div class="card"><b>Where to?</b>Tap a glowing spot on the map, or pick a stop to follow the story from start to finish.</div><div class="row"><button class="pri" data-i="0">Start the story</button><button id="br">Back to start</button></div>'+chips();wire()}
+function go(i){if(busy||i<0||i>=S.length)return;busy=true;var s=S[i];ov.innerHTML='';st.innerHTML=mapSvg(pos);ui.innerHTML='<div class="card"><b>Walking to '+s.t.replace(/^\d\. /,'')+'…</b>Follow the red saree through the village.</div>';
+var w=document.getElementById('walker');void w.getBoundingClientRect();var t=N[s.n];w.style.transform='translate('+t[0]+'px,'+t[1]+'px)';
+setTimeout(function(){pos=s.n;cur=i;busy=false;scene()},pos==s.n?500:2000)}
+function scene(){var s=S[cur];st.innerHTML='<div class="fade"><svg viewBox="0 0 400 560" preserveAspectRatio="xMidYMid slice">'+s.f()+'</svg></div>';
+ui.innerHTML='<div class="card"><b>'+s.t.replace(/^\d\. /,'')+'</b><span class="hi">'+s.h+'</span><div style="margin-top:6px">'+s.cap+'</div><div class="lore">'+s.lore+'</div></div><div class="row"><button id="bp"'+(cur==0?' disabled':'')+'>← Back</button><button id="bl">Legend</button><button class="pri" id="bn"'+(cur==S.length-1?' disabled':'')+'>Next stop →</button></div><div class="row"><button id="bm">Open map</button><button id="br">From the beginning</button></div>'+chips();wire()}
+var AC,M=null,on=true,UA=null,snb=document.getElementById('snd'),PH=[[1.5,1.25,1.125,1,1.125,1.25,1.5,1.25],[1.5,1.667,2,1.667,1.5,1.25,1.125,1],[1.25,1.5,1.667,1.5,1.25,1.125,1,1],[1.125,1.25,1.5,1.667,2,1.667,1.5,1.5]];
+function env(f,t,d,v,ty,dest){var o=AC.createOscillator(),g=AC.createGain();o.type=ty;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0008,t+d);o.connect(g);g.connect(dest);o.start(t);o.stop(t+d+.05);return o}
+var started=false;function startMusic(){if(started)return;started=true;if(YT_ID){playYT(YT_ID);return}var a=new Audio('hooaryan.mp3');a.loop=true;UA=a;var fail=function(){UA=null;startSynth()};var p;try{p=a.play()}catch(e){fail();return}if(p&&p.then)p.then(setCredit).catch(fail)}
+function startSynth(){if(M||!(window.AudioContext||window.webkitAudioContext))return;try{AC=new(window.AudioContext||window.webkitAudioContext)();AC.resume();
+var g=AC.createGain();g.gain.value=0;g.connect(AC.destination);g.gain.linearRampToValueAtTime(.55,AC.currentTime+2);M={g:g};
+var dl=AC.createDelay(1),fb=AC.createGain(),wet=AC.createGain();dl.delayTime.value=.3;fb.gain.value=.4;wet.gain.value=.5;dl.connect(fb);fb.connect(dl);dl.connect(wet);wet.connect(g);
+var lp=AC.createBiquadFilter();lp.type='lowpass';lp.frequency.value=520;var dg=AC.createGain();dg.gain.value=.07;lp.connect(dg);dg.connect(g);
+[130.81,196,261.63,65.4].forEach(function(f,i){var o=AC.createOscillator();o.type='sawtooth';o.frequency.value=f*(1+i*.0015);o.connect(lp);o.start()});
+var nt=AC.currentTime+.2,nb=0,bt=.42;
+function pl(f,t,d,v){var a=AC.createGain();a.gain.value=1;a.connect(g);a.connect(dl);env(f,t,d,v,'triangle',a);env(f*2,t,d*.5,v*.3,'sine',a)}
+setInterval(function(){while(nt<AC.currentTime+.6){var b=nb,t=nt,p=PH[Math.floor(b/8)%4][b%8];
+pl(261.63*p,t,.8,.2);
+if(b%4==0||b%8==3){env(150,t,.2,.5,'sine',g).frequency.exponentialRampToValueAtTime(55,t+.15)}else{env(1100,t,.05,.07,'triangle',g)}
+if(b%16==0){var a=AC.createGain();a.connect(g);a.connect(dl);env(1568,t,2.2,.07,'sine',a)}
+nt+=bt;nb++}},150);
+snb.textContent='♪ On'}catch(e){}}
+snb.onclick=function(){if(!M&&!UA){startMusic();return}on=!on;if(UA){on?UA.play():UA.pause()}else M.g.gain.setTargetAtTime(on?.55:0,AC.currentTime,.1);snb.textContent=on?'♪ On':'♪ Off'};
+document.getElementById('mf').onchange=function(){var f=this.files[0];if(!f)return;startMusic();if(M)M.g.gain.setTargetAtTime(0,AC.currentTime,.1);if(UA)UA.pause();UA=new Audio(URL.createObjectURL(f));document.getElementById('ct').value=f.name.replace(/\.[^.]+$/,'');setSong();UA.loop=true;on=true;UA.play();snb.textContent='♪ On'};
+function setSong(){var t=document.getElementById('ct').value.trim(),a=document.getElementById('ca').value.trim();document.getElementById('np').textContent=UA&&t?'♪ '+t+(a?' — '+a:''):''}
+document.getElementById('ct').oninput=setSong;document.getElementById('ca').oninput=setSong;
+document.getElementById('cb').onclick=function(){var c=document.getElementById('cr');c.hidden=!c.hidden};
+var YT_ID='';
+function ytId(u){var s=String(u).trim(),m=s.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([A-Za-z0-9_-]{11})/)||s.match(/^([A-Za-z0-9_-]{11})$/);return m?m[1]:''}
+function playYT(id){if(M)M.g.gain.setTargetAtTime(0,AC.currentTime,.1);if(UA)UA.pause();started=true;var y=document.getElementById('yt'),t=document.getElementById('ct').value.trim()||'Ho Deenanath',a=document.getElementById('ca').value.trim()||'Sharda Sinha';y.hidden=false;y.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&loop=1&playlist='+id+'&playsinline=1" allow="autoplay; encrypted-media" allowfullscreen title="Song player"></iframe><button type="button" id="yx" aria-label="Hide player">✕</button>';document.getElementById('yx').onclick=function(){y.hidden=true;y.innerHTML=''};document.getElementById('np').textContent='♪ '+t+' — '+a+' (YouTube)';snb.textContent='♪ Off'}
+document.getElementById('yp').onclick=function(){var l=document.getElementById('yl'),id=ytId(l.value);if(id){playYT(id);document.getElementById('cr').hidden=true}else{l.value='';l.placeholder='Not a YouTube link, try again'}};
+document.getElementById('ys').onclick=function(){var q=(document.getElementById('ct').value.trim()||'Ho Deenanath')+' '+(document.getElementById('ca').value.trim()||'Sharda Sinha');window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(q),'_blank')};
+var SONG_TITLE='',SONG_ARTIST='';
+function setCredit(){document.getElementById('ct').value=SONG_TITLE;document.getElementById('ca').value=SONG_ARTIST;snb.textContent='♪ On';setSong()}
+intro();
+</script>
+</body>
+</html>
